@@ -86,10 +86,6 @@ footer span {
   width: 50%;
 }
 
-footer span:first-child {
-
-}
-
 footer span:last-child {
   text-align: right;
 }
