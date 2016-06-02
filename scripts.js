@@ -68,12 +68,51 @@ var calcule_chrono = function(distance, vitesse) {
   minutes = parseInt((secondes - heures * 3600) / 60);
   secondes = secondes - heures * 3600 - minutes * 60;
 
-  if (minutes.toString().length == 1){
+  if (minutes.toString().length == 1) {
     minutes = '0' + minutes;
   }
-  if (secondes.toString().length == 1){
+  if (secondes.toString().length == 1) {
     secondes = '0' + secondes;
+  } else if (secondes.toString().length > 2) {
+    secondes = secondes.toString().substring(0, 2);
   }
 
   return heures + ':' + minutes + ':' + secondes;
 }
+
+var inlineTweets = document.querySelectorAll('*[data-inline-tweet]');
+
+if (inlineTweets) {
+  function buildInlineTweet(inlineTweet) {
+    var linkContent = inlineTweet.innerHTML;
+    var tweetText = inlineTweet.dataset.inlineTweetText ? inlineTweet.dataset.inlineTweetText : inlineTweet.innerHTML;
+
+    // TWEET LINK VARIABLES
+    var tweetTextEncoded = encodeURIComponent(tweetText);
+    var pageURL = inlineTweet.dataset.inlineTweetUrl ? inlineTweet.dataset.inlineTweetUrl : window.location.href;
+    var tweetVia = inlineTweet.dataset.inlineTweetVia ? "&via="+inlineTweet.dataset.inlineTweetVia : "";
+    var tweetHashtags = inlineTweet.dataset.inlineTweetTags ? "&hashtags="+inlineTweet.dataset.inlineTweetTags : "";
+    var tweetLink = "https://twitter.com/intent/tweet/?text="+tweetTextEncoded+"&url="+pageURL+tweetVia+tweetHashtags;
+
+    // SPAN ELEMENT
+    var tweetTextContainer = document.createElement('span');
+    tweetTextContainer.innerHTML = linkContent;
+
+    // ANCHOR ELEMENT
+    var link = document.createElement('a');
+    link.target = "_blank";
+    link.href = tweetLink;
+    link.appendChild(tweetTextContainer);
+
+    inlineTweet.innerHTML = "";
+    inlineTweet.appendChild(link);
+  }
+
+  for ( var i = 0; i < inlineTweets.length; i++ ) {
+    buildInlineTweet(inlineTweets[i])
+  }
+}
+
+
+
+
