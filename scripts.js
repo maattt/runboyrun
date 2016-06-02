@@ -22,10 +22,10 @@ if (chrono != '' && distance != '') {
   tab = chrono.split(':');
   secondes = parseInt(tab[0]) * 3600 + parseInt(tab[1]) * 60 + parseInt(tab[2]);
   heures = secondes / 3600;
+  distance = parseFloat(distance.toString().replace(',', '.'));
   vitesse = Math.round(distance / heures * 100) / 100;
   document.getElementById("vitesse").value = vitesse;
   allure = calcule_allure(vitesse);
-  console.log(allure);
   document.getElementById("allure").value = allure;
 }
 
@@ -62,7 +62,8 @@ var calcule_allure = function(vitesse) {
 }
 
 var calcule_chrono = function(distance, vitesse) {
-  distance = parseFloat(distance.replace(',', '.'));
+  distance = parseFloat(distance.toString().replace(',', '.'));
+  vitesse = parseFloat(vitesse.toString().replace(',', '.'));
   secondes = 3600 / (vitesse / distance);
   heures = parseInt(secondes / 3600);
   minutes = parseInt((secondes - heures * 3600) / 60);
@@ -71,7 +72,13 @@ var calcule_chrono = function(distance, vitesse) {
   if (minutes.toString().length == 1) {
     minutes = '0' + minutes;
   }
-  if (secondes.toString().length == 1) {
+
+  if (secondes < 0.5) {
+    secondes = '00';
+  } else if (secondes >= 0.5 && secondes < 1) {
+    secondes = '01';
+  }
+  else if (secondes.toString().length == 1) {
     secondes = '0' + secondes;
   } else if (secondes.toString().length > 2) {
     secondes = secondes.toString().substring(0, 2);
