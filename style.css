@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'Virtue';
+    src: url('/fonts/virtue-webfont.eot');
+    src: url('/fonts/virtue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/virtue-webfont.woff2') format('woff2'),
+         url('/fonts/virtue-webfont.woff') format('woff'),
+         url('/fonts/virtue-webfont.ttf') format('truetype'),
+         url('/fonts/virtue-webfont.svg#virtueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: "Virtue", "Arial", "sans-serif";
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: #000;
+  color: white;
+}
+
+h1 {
+  font-size: 3em;
+  color: white;
+  text-align: center;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #8C48AB;
+  text-decoration: underline;
+}
+
+form {
+  width: 95%;
+  margin: auto;
+}
+
+form div {
+  width: 98%;
+  margin: 1.3em auto;
+  font-size: 1.4em;
+}
+
+label {
+  display: block;
+  margin: 0.2em 0.4em 0;
+  font-size: 0.9em;
+  text-align: right;
+  font-style: italic;
+}
+
+input[type="text"], input[type="submit"]  {
+  display: inline-block;
+  width: 100%;
+  padding: 0.2em;
+  font-size: 1.6em;
+  vertical-align: middle;
+}
+
+input[type="text"]:focus {
+  border: 3px solid #8C48AB;
+}
+
+input[type="submit"]:hover {
+  border: 2px solid white;
+  background: #8C48AB;
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  font-size: 1.1em;
+}
+
+footer span {
+  display: inline-block;
+  width: 50%;
+}
+
+footer span:first-child {
+
+}
+
+footer span:last-child {
+  text-align: right;
+}
