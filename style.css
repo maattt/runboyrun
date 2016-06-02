@@ -115,4 +115,8 @@ footer div:last-child {
     width: 88%;
   }
 
+
+  footer {
+    font-size: 1.2em;
+}
 }
