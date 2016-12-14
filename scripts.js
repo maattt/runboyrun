@@ -7,8 +7,7 @@ var chrono = document.getElementById("chrono").value;
 if (allure != '') {
   vitesse = calcule_vitesse(allure);
   document.getElementById("vitesse").value = vitesse;
-}
-else if (vitesse != '') {
+} else if (vitesse != '') {
   allure = calcule_allure(vitesse);
   document.getElementById("allure").value = allure;
 }
