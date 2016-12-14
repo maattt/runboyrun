@@ -1,7 +1,6 @@
 {
   "name": "Run Boy Run",
-  "scope": "/runboyrun/",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000",
   "theme_color": "#000",
